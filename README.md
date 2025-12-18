@@ -59,6 +59,11 @@ sequenceDiagram
 
 更详细的部署、Emulator、本地开发与排障说明见：[docs/DEPLOYMENT.zh-CN.md](docs/DEPLOYMENT.zh-CN.md)（中文）与 [docs/DEPLOYMENT.en.md](docs/DEPLOYMENT.en.md)（English）。
 
+> **注意**：本 Demo 为了开箱即用，服务端部分使用了 **Firebase Functions** 作为示例。但这并非强制依赖——**核心逻辑完全可以移植到任何后端架构（如 Python/FastAPI、Go/Gin、Java/Spring 等）**。
+> 你只需要在服务端实现两件事：
+> 1. **向量检索 API**：根据 query 检索出 Top-K 的工具定义。
+> 2. **LLM 交互 API**：将检索到的工具注入 Prompt，并返回 LLM 的 toolPlan/toolCall 结果。
+
 ### 1) 部署服务端（Firebase Functions）
 
 ```bash

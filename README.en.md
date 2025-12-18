@@ -62,6 +62,11 @@ sequenceDiagram
 
 Detailed instructions: [docs/DEPLOYMENT.en.md](docs/DEPLOYMENT.en.md) (English) / [docs/DEPLOYMENT.zh-CN.md](docs/DEPLOYMENT.zh-CN.md) (中文).
 
+> **Note**: This demo uses **Firebase Functions** for the backend to provide an out-of-the-box experience. However, this is **not a strict requirement**. The core logic can be ported to **any backend architecture (Python/FastAPI, Go/Gin, Java/Spring, etc.)**.
+> You simply need to implement two things on your server:
+> 1. **Vector Search API**: Retrieve Top-K tool definitions based on the user's query.
+> 2. **LLM Interaction API**: Inject the retrieved tools into the prompt and return the LLM's toolPlan/toolCall response.
+
 ### 1) Server (Firebase Functions)
 
 ```bash
